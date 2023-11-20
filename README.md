@@ -44,33 +44,68 @@ Storybook'u çalıştırmak için aşağıdaki adımları takip edebilirsiniz:
 
 ## Klasör Yapısı
 
-.
-├── package.json
-├── postcss.config.js
-├── public
-│ ├── assets
-│ │ └── images --------- Tüm Proje Görselleri
-│ ├── favicon.ico
-│ ├── index.html
-│ ├── manifest.json
-│ └── robots.txt
-├── README.md
-├── src
-│ ├── App.jsx
-│ ├── assets
-│ │ └── fonts ---------- Proje Fontları
-│ ├── components --------- UI ve Algılanan Ortak Bileşenler
-│ ├── constants ---------- Proje sabitleri, örneğin: string sabitleri
-│ ├── hooks -------------- Yardımcı Hooks
-│ ├── index.jsx
-│ ├── pages -------------- Tüm rota sayfaları
-│ ├── Routes.jsx ---------- Yönlendirme
-│ ├── styles
-│ │ ├── index.css ------ Diğer Global Stiller
-│ │ └── tailwind.css --- Varsayılan Tailwind modülleri
-│ └── util
-│ └── index.jsx ------- Yardımcı yardımcılar
-└── tailwind.config.js ----- Tüm tema yapılandırması, renkler, fontlar vb.
+import java.util.ArrayList;
+import java.util.List;
+
+class FileOrFolder {
+    private String name;
+    private boolean isFile;
+    private List<FileOrFolder> children;
+
+    public FileOrFolder(String name, boolean isFile) {
+        this.name = name;
+        this.isFile = isFile;
+        this.children = new ArrayList<>();
+    }
+
+    public void addChild(FileOrFolder child) {
+        this.children.add(child);
+    }
+
+    public void display(String indent) {
+        System.out.println(indent + (isFile ? "├── " : "└── ") + name);
+        for (int i = 0; i < children.size() - 1; i++) {
+            children.get(i).display(indent + (isFile ? "│   " : "    "));
+        }
+        if (children.size() > 0) {
+            children.get(children.size() - 1).display(indent + (isFile ? "│   " : "    "));
+        }
+    }
+}
+
+public class FolderStructure {
+    public static void main(String[] args) {
+        // Klasör yapısını oluştur
+        FileOrFolder root = new FileOrFolder("Proje", false);
+
+        FileOrFolder publicFolder = new FileOrFolder("public", false);
+        FileOrFolder assetsFolder = new FileOrFolder("assets", false);
+        FileOrFolder imagesFolder = new FileOrFolder("images", false);
+
+        FileOrFolder srcFolder = new FileOrFolder("src", false);
+        FileOrFolder assetsSrcFolder = new FileOrFolder("assets", false);
+        FileOrFolder fontsFolder = new FileOrFolder("fonts", false);
+
+        FileOrFolder stylesFolder = new FileOrFolder("styles", false);
+
+        FileOrFolder utilFolder = new FileOrFolder("util", false);
+
+        root.addChild(publicFolder);
+        publicFolder.addChild(assetsFolder);
+        assetsFolder.addChild(imagesFolder);
+
+        root.addChild(srcFolder);
+        srcFolder.addChild(assetsSrcFolder);
+        assetsSrcFolder.addChild(fontsFolder);
+
+        srcFolder.addChild(stylesFolder);
+
+        srcFolder.addChild(utilFolder);
+
+        // Klasör yapısını göster
+        root.display("");
+    }
+}
 
 Projeyi derlemek için **bu dosyaların kesin dosya adlarıyla mevcut olması gerekir**:
 
