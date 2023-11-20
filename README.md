@@ -71,9 +71,8 @@ class FileOrFolder {
             children.get(children.size() - 1).display(indent + (isFile ? "│   " : "    "));
         }
     }
-}
-
-public class FolderStructure {
+ }
+ public class FolderStructure {
     public static void main(String[] args) {
         // Klasör yapısını oluştur
         FileOrFolder root = new FileOrFolder("Proje", false);
