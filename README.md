@@ -23,19 +23,24 @@
 
 Bu dosya çeşitli ortam değişkenlerini içermektedir ve bunları yapılandırabilirsiniz.
 
-# Storybook'u Çalıştırma
-
-Ortak bileşenleri algıladık ve olası varyasyonlarını oluşturduk. Storybook'u entegre ederek oluşturulan ortak bileşenlerin belgelerini kontrol etmek için lütfen aşağıdaki adımları izleyin.
-
-## Kurulum ve Başlatma
-
-npx storybook init
-
-
 ## Storybook'u Çalıştırma
 
-npm run storybook
+Storybook'u çalıştırmak için aşağıdaki adımları takip edebilirsiniz:
 
+1. **Proje Dizinine Git:**
+    ```bash
+    cd Proje_Dizini
+    ```
+
+2. **Bağımlılıkları Yükle:**
+    ```bash
+    npm install
+    ```
+
+3. **Storybook'u Başlat:**
+    ```bash
+    npm run storybook
+    ```
 
 ## Klasör Yapısı
 
@@ -43,33 +48,29 @@ npm run storybook
 ├── package.json
 ├── postcss.config.js
 ├── public
-│   ├── assets
-│   │   └── images --------- Tüm Proje Görselleri
-│   ├── favicon.ico
-│   ├── index.html
-│   ├── manifest.json
-│   └── robots.txt
+│ ├── assets
+│ │ └── images --------- Tüm Proje Görselleri
+│ ├── favicon.ico
+│ ├── index.html
+│ ├── manifest.json
+│ └── robots.txt
 ├── README.md
 ├── src
-│   ├── App.jsx
-│   ├── assets
-│   │   └── fonts ---------- Proje Fontları
-│   ├── components --------- UI ve Algılanan Ortak Bileşenler
-│   ├── constants ---------- Proje sabitleri, örneğin: string sabitleri
-│   ├── hooks -------------- Yardımcı Hooks
-│   ├── index.jsx
-│   ├── pages -------------- Tüm rota sayfaları
-│   ├── Routes.jsx ---------- Yönlendirme
-│   ├── styles
-│   │   ├── index.css ------ Diğer Global Stiller
-│   │   └── tailwind.css --- Varsayılan Tailwind modülleri
-│   └── util
-│       └── index.jsx ------- Yardımcı yardımcılar
+│ ├── App.jsx
+│ ├── assets
+│ │ └── fonts ---------- Proje Fontları
+│ ├── components --------- UI ve Algılanan Ortak Bileşenler
+│ ├── constants ---------- Proje sabitleri, örneğin: string sabitleri
+│ ├── hooks -------------- Yardımcı Hooks
+│ ├── index.jsx
+│ ├── pages -------------- Tüm rota sayfaları
+│ ├── Routes.jsx ---------- Yönlendirme
+│ ├── styles
+│ │ ├── index.css ------ Diğer Global Stiller
+│ │ └── tailwind.css --- Varsayılan Tailwind modülleri
+│ └── util
+│ └── index.jsx ------- Yardımcı yardımcılar
 └── tailwind.config.js ----- Tüm tema yapılandırması, renkler, fontlar vb.
-
-
-less
-Copy code
 
 Projeyi derlemek için **bu dosyaların kesin dosya adlarıyla mevcut olması gerekir**:
 
