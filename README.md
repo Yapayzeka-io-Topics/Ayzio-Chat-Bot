@@ -64,15 +64,17 @@ class FileOrFolder {
 
     public void display(String indent) {
         System.out.println(indent + (isFile ? "├── " : "└── ") + name);
-        for (int i = 0; i < children.size() - 1; i++) {
-            children.get(i).display(indent + (isFile ? "│   " : "    "));
-        }
-        if (children.size() > 0) {
-            children.get(children.size() - 1).display(indent + (isFile ? "│   " : "    "));
+        for (int i = 0; i < children.size(); i++) {
+            if (i < children.size() - 1) {
+                children.get(i).display(indent + (isFile ? "│   " : "    "));
+            } else {
+                children.get(i).display(indent + (isFile ? "    " : "    "));
+            }
         }
     }
- }
- public class FolderStructure {
+}
+
+public class FolderStructure {
     public static void main(String[] args) {
         // Klasör yapısını oluştur
         FileOrFolder root = new FileOrFolder("Proje", false);
